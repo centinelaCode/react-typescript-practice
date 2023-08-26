@@ -19,7 +19,7 @@ type Props = { img: string, alt: string }
  
 
 //! Forma Explicita de definir un componente con typescript [Recomendada]
-export const RandomFox = ({ img }: Props): JSX.Element => {   
+export const RandomFox = ({ img, alt }: Props): JSX.Element => {   
     
     return (
         <>
@@ -28,6 +28,7 @@ export const RandomFox = ({ img }: Props): JSX.Element => {
                 width={320} 
                 height="auto" 
                 src={img}
+                alt={alt}
                 className="rounded-lg"
             />            
         </>
