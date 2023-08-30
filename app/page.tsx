@@ -1,13 +1,12 @@
 'use client'
 import { useState } from 'react'
 import type { MouseEventHandler } from 'react'
+
 import {RandomFox} from '../components/RandomFox'
 
 // generate random functio enter 1 between 123
-const random = () => Math.floor(Math.random() * 123) + 1;
-
-// generate function for id unique
-const generateId = () => Math.random().toString(36).substr(2, 9);
+const random = () => Math.floor(Math.random() * 123) + 1;         // number random
+const generateId = () => Math.random().toString(36).substr(2, 9); // id random
 
 type ImageItem = {id: string, url: string}
 
@@ -33,7 +32,7 @@ export default function Home() {
   return (
     <div>
       <main>
-        <h1 className='text-3xl font-bold underline'>Hello Platzi</h1>
+        <h1 className='text-3xl font-bold underline'>Random Fox!!!</h1>
 
         <button
           onClick={ addNewFox }

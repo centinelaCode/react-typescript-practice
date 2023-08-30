@@ -1,30 +1,17 @@
-
-//! Forma implicita de definir un componente con typescript
-// export const RandomFox1 = () => {
-//     return <img />
-// }
-
-//! Forma 3  con typescript
-// export const RandomFox3: FunctionComponent = () => {
-//     return <img />
-// }
-
-//! Forma 4 con typescript
-// export const RandomFox4: FC = () => {
-//     return <img />
-// }
-
+import { useRef } from 'react'
 
 type Props = { img: string, alt: string }
  
-
-//! Forma Explicita de definir un componente con typescript [Recomendada]
-export const RandomFox = ({ img, alt }: Props): JSX.Element => {   
+//! Forma profesional de tipar un componente con typescript [Recomendada]
+export const RandomFox = ({ img, alt }: Props): JSX.Element => {
+    const node = useRef<HTMLImageElement>(null)
+    
+    
     
     return (
-        <>
-            <p>{img}</p>
+        <>            
             <img 
+                ref={node}
                 width={320} 
                 height="auto" 
                 src={img}
