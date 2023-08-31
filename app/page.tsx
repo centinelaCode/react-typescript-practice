@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import type { MouseEventHandler } from 'react'
 
-import {RandomFox} from '../components/RandomFox'
+import {LazyImage} from '../components/RandomFox'
 
 // generate random functio enter 1 between 123
 const random = () => Math.floor(Math.random() * 123) + 1;         // number random
@@ -41,9 +41,14 @@ export default function Home() {
 
         {images.map(({id, url}) => (
           <div key={id} className="p-4">
-            <RandomFox 
-              image={url}
+            <LazyImage 
+              src={url}
               alt="Fox Image"
+              width={320} 
+              height="auto" 
+              title="RandomFox"
+              className="rounded-lg bg-gray-300"
+              onClick={() => console.log('Hey')}
             />
           </div>
         ))}

@@ -1,12 +1,15 @@
 'use client'
 import { useRef, useEffect, useState } from 'react'
+import type { ImgHTMLAttributes } from 'react'
 
-type Props = { image: string, alt: string }
+type LaziImageProps = { src: string }
+type ImageNative = ImgHTMLAttributes<HTMLImageElement>
+type Props = LaziImageProps & ImageNative
  
 //! Forma profesional de tipar un componente con typescript [Recomendada]
-export const RandomFox = ({ image, alt }: Props): JSX.Element => {
+export const LazyImage = ({ src, ...imgProps }: Props): JSX.Element => {
     const node = useRef<HTMLImageElement>(null)
-    const [src, setSrc] = useState(
+    const [currentSrc, setCurrentSrc] = useState(
         "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
     )
 
@@ -17,7 +20,7 @@ export const RandomFox = ({ image, alt }: Props): JSX.Element => {
             entries.forEach( entry => {
                 // intersection -> console.log
                 if(entry.isIntersecting) {
-                    setSrc(image)
+                    setCurrentSrc(src)
                 }
             })
         })
@@ -32,20 +35,18 @@ export const RandomFox = ({ image, alt }: Props): JSX.Element => {
             observer.disconnect()
         }
 
-    }, [image])
+    }, [src])
 
     
 
     
     return (
-        <>            
+        <>      
+            <p>{src}</p>      
             <img 
-                ref={node}
-                width={320} 
-                height="auto" 
-                src={src}
-                alt={alt}
-                className="rounded-lg bg-gray-300"
+                ref={node}            
+                src={currentSrc}
+                { ...imgProps }
             />            
         </>
     )
