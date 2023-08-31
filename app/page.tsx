@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import type { MouseEventHandler } from 'react'
 
-import {LazyImage} from '../components/RandomFox'
+import { LazyImage } from '../components/RandomFox'
 
 // generate random functio enter 1 between 123
 const random = () => Math.floor(Math.random() * 123) + 1;         // number random

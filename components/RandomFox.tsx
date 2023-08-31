@@ -42,7 +42,7 @@ export const LazyImage = ({ src, ...imgProps }: Props): JSX.Element => {
     
     return (
         <>      
-            <p>{src}</p>      
+            {/* <p>{src}</p>       */}
             <img 
                 ref={node}            
                 src={currentSrc}
