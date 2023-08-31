@@ -42,7 +42,7 @@ export default function Home() {
         {images.map(({id, url}) => (
           <div key={id} className="p-4">
             <RandomFox 
-              img={url}
+              image={url}
               alt="Fox Image"
             />
           </div>
