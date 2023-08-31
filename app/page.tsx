@@ -8,18 +8,16 @@ import { LazyImage } from '../components/RandomFox'
 const random = () => Math.floor(Math.random() * 123) + 1;         // number random
 const generateId = () => Math.random().toString(36).substr(2, 9); // id random
 
-type ImageItem = {id: string, url: string}
-
 export default function Home() {
 
-  const [images, setImages] = useState<Array<ImageItem>>([])
+  const [images, setImages] = useState<Array<IFoxImageItem>>([])
 
   // forma 1 de tipar un event: event: { preventDefault: () => void }
   const addNewFox: MouseEventHandler<HTMLButtonElement> = (event) => {
     // event.preventDefault();
     // const taget = event.target
 
-    const newImageItem: ImageItem =  { 
+    const newImageItem: IFoxImageItem =  { 
       id: generateId(), 
       url:`https://randomfox.ca/images/${random()}.jpg`
     }
